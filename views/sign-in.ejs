@@ -1,24 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/0c22d82983.js" crossorigin="anonymous"></script>
-    <title><%= title %></title>
-</head>
-<body>
-    <header>
-        <h1><i class="fa fa-code-fork" aria-hidden="true"></i>Code <i class="fa fa-comments-o" aria-hidden="true"></i>ial</h1>
-    </header>
-    <section id="mid">
-        <form action="/users/createSession" method="POST">
-            <input type="email" name="email" class="sign-in" required>
-            <input type="password" name="password" class="sign-in" required>
-            <button type="submit" id="sign-in-btn">Sign-in</button>
-        </form>
-    </section>
-    <footer>
-
-    </footer>
-</body>
-</html>
+<link rel="stylesheet" href="/css/sign-in.css">
+<div id="sign-in-container">
+    <div id="sign-in-form">
+        <section id="mid">
+            <form action="/users/createSession" method="POST">
+                <input type="email" name="email" class="sign-in" required>
+                <input type="password" name="password" class="sign-in" required>
+                <button type="submit" id="sign-in-btn">Sign-in</button>
+            </form>
+        </section>
+    </div>
+</div>

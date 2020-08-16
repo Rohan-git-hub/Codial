@@ -1,0 +1,28 @@
+#sign-in-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: -40px; }
+  #sign-in-container #sign-in-form {
+    height: 100%;
+    width: 50%; }
+    #sign-in-container #sign-in-form form {
+      margin-top: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+      #sign-in-container #sign-in-form form input {
+        font-size: 1.5rem;
+        margin-top: 20px;
+        border-radius: 10px;
+        width: 80%;
+        background-color: transparent;
+        border-color: #868686;
+        color: #868686; }
+      #sign-in-container #sign-in-form form input:focus {
+        outline: none; }
+      #sign-in-container #sign-in-form form button {
+        padding: 10px;
+        margin-top: 10px; }

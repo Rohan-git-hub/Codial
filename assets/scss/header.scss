@@ -1,0 +1,28 @@
+#logo{
+    display: flex;
+    flex-direction: row;
+    top: 0px;
+    position: fixed;
+    width: 100vw;
+    height: min-content;
+    color: white;
+    background-color: rgb(134, 134, 134);
+    justify-content: space-between;
+    align-items: center;
+    h1{
+        margin-left: 10px;
+    }
+    #profile-links{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        li{
+            margin-right: 20px;
+            list-style: none;
+            a{
+                color: white;
+                text-decoration: none;
+            }
+        }
+    }
+}
