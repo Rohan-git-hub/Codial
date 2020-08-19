@@ -10,7 +10,7 @@ const commentSchema = new mogoose.Schema({
     },
     post:{
         type: mogoose.Schema.Types.ObjectId,
-        ref: 'Post'
+        ref: 'Posts'
     }
 },{
     timestamps: true
