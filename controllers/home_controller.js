@@ -1,7 +1,8 @@
 const Post = require('../models/post');
 const User = require('../models/user');
-module.exports.home = function(req, res){
-    Post.find({})
+module.exports.home = async function(req, res){
+    try{
+        let posts = await Post.find({})
     .populate('user')
     .populate({
         path: 'comments',
@@ -9,16 +10,25 @@ module.exports.home = function(req, res){
             path: 'user'
         }
     })
-    .exec(function(err, posts) {
-        User.find({}, function(err, users) {
-            if(req.isAuthenticated()){
-                return res.render('home',{
-                    title:'Home',
-                    posts: posts,
-                    all_users: users
-                });
-            }
-            return res.redirect('/users/sign-in');  
-        })
-    });
+    let users = await User.find({});
+    if(req.isAuthenticated()){
+        return res.render('home',{
+            title:'Home',
+            posts: posts,
+            all_users: users
+        });
+    }
+    return res.redirect('/users/sign-in'); 
+    }catch(err){
+        console.log(err, 'errr');
+    } 
 }
+// if(req.isAuthenticated()){
+//     return res.render('home',{
+//         title:'Home',
+//         posts: posts,
+//         all_users: users
+//     });
+// }
+// return res.redirect('/users/sign-in');  
+// })
