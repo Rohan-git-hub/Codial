@@ -5,7 +5,8 @@
   flex-direction: row;
   justify-content: center;
   margin-top: -70px;
-  background-image: url("/images/background_doodle.jpg"); }
+  background-image: url("/images/background_doodle.jpg");
+  z-index: -10; }
   #sign-in-container #sign-in-form {
     background-color: white;
     background-attachment: scroll;
