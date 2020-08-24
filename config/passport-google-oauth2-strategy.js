@@ -5,7 +5,7 @@ const User = require('../models/user');
 passport.use(new googleStrategy({
         clientID: "753553362436-8n4gtuhsv9saqjvspc14t5d7miupknd9.apps.googleusercontent.com",
         clientSecret: "ZJc5tZi-NvPRrFrJbQu7m33J",
-        callbackURL: "http://localhost:800/users/auth/google/callback"
+        callbackURL: "http://localhost:8000/users/auth/google/callback"
     },
     function(accessToken, refreshToken, profile, done) {
         User.findOne({email: profile.emails[0].value}).exec(function(err,user) {
@@ -26,3 +26,4 @@ passport.use(new googleStrategy({
         });
     }
 ));
+module.exports = passport;
