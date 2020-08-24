@@ -14,19 +14,24 @@ module.exports.create = async function(req, res){
             content: req.body.content,
             user: req.user._id
         });
-        if (req.xhr) {
+        
+        if (req.xhr){
             return res.status(200).json({
                 data: {
-                    post:post
+                    post: post
                 },
-                message: 'post Created'
-            })
+                message: "Post created!"
+            });
         }
-        req.flash('success','Post Published !');
+
+        req.flash('success', 'Post published!');
         return res.redirect('back');
+
     }catch(err){
-        console.log('ERROR', err)
+        req.flash('error', err);
+        return res.redirect('back');
     }
+  
 }
 module.exports.destroy = async function(req, res) {
     try{
