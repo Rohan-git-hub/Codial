@@ -1,5 +1,7 @@
 const User = require('../models/user');
-const user = require('../models/user');
+// const user = require('../models/user');
+const fs = require('fs');
+const path = require('path');
 module.exports.profile = function(req, res){
     User.findById(req.params.id, function(err, user) {
         return res.render('users', {
@@ -9,13 +11,6 @@ module.exports.profile = function(req, res){
     });
 }
 module.exports.update = async function(req, res) {
-    // if(req.user.id == req.params.id){
-    //     user.findByIdAndUpdate(req.params.id, req.body, function(err, userup) {
-    //         return res.redirect('back');
-    //     })
-    // }else{
-    //     return res.status(401).send('unauthorized');
-    // }
     if(req.user.id == req.params.id){
         try{
             let user = await User.findById(req.params.id);
@@ -24,9 +19,13 @@ module.exports.update = async function(req, res) {
                 user.name = req.body.name;
                 user.email = req.body.email;
                 if(req.file){
+                    if(user.avatar){
+                        fs.unlinkSync(path.join(__dirname, '..', user.avatar));
+                    }
                     user.avatar = User.avatarPath + '/' + req.file.filename;
                 }
                 user.save();
+                console.log(user.avatar);
                 return res.redirect('back');
             })
         }catch(error){
