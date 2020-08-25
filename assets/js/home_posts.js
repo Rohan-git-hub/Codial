@@ -117,7 +117,7 @@
             $.ajax({
                 type: 'get',
                 url: $(deleteLink).prop('href'),
-                success: function(data){
+                success: function(deletePostdata){
                     $(`#post-${data.data.post_id}`).remove();
                 },error: function(error){
                     console.log(error.responseText);
