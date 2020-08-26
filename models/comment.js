@@ -1,15 +1,15 @@
-const mogoose = require('mongoose');
-const commentSchema = new mogoose.Schema({
+const mongoose = require('mongoose');
+const commentSchema = new mongoose.Schema({
     content:{
         type: String,
         required: true
     },
     user:{
-        type: mogoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
     post:{
-        type: mogoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Posts'
     },
     likes : [
@@ -21,5 +21,5 @@ const commentSchema = new mogoose.Schema({
 },{
     timestamps: true
 });
-const Comment = mogoose.model('Comment', commentSchema);
+const Comment = mongoose.model('Comment', commentSchema);
 module.exports = Comment;
